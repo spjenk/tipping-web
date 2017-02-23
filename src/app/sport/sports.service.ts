@@ -3,7 +3,7 @@ import {Injectable} from "@angular/core"
 
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
-import {Sports, Sport} from "./models/sports.data.models"
+import {Sports} from "../shared/models/sports.data.models"
 
 @Injectable()
 export class SportService {

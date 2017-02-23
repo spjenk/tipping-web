@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SportService} from "../../sports.service"
-import {Sports, Sport} from "../../models/sports.data.models"
+import {Sports, Sport} from "../../../shared/models/sports.data.models"
 
 @Component({
     selector: 'app-sport-grid',

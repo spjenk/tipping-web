@@ -1,8 +1,47 @@
-<div class="ui grid">
-    <div class="column">blah</div>
-    <div class="column">blah</div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
+<br><br>
+<div class="ui grid" *ngFor="let item of subEvents">
+    <br>
+    <div class="ui center aligned container">
+        <div class="ui cards">
+            <div class="card">
+                <div class="content">
+                    <!-- <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg"> -->
+                    <div class="header">
+                        {{ item.Offers[0].OfferName }}
+                    </div>
+                    <div class="meta">
+                        {{ item.Offers[0].WinReturn }}
+                    </div>
+                    <div class="description">
+                        description
+                    </div>
+                </div>
+                <div class="extra content">
+                    <div class="ui two buttons">
+                        <div class="ui basic green button">Tip</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="content">
+                    <!-- <img class="right floated mini ui image" src="/images/avatar/large/jenny.jpg"> -->
+                    <div class="header">
+                        {{ item.Offers[1].OfferName }}
+                    </div>
+                    <div class="meta">
+                        {{ item.Offers[1].WinReturn }}
+                    </div>
+                    <div class="description">
+                        description
+                    </div>
+                </div>
+                <div class="extra content">
+                    <div class="ui two buttons">
+                        <div class="ui basic green button">Tip</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
 </div>

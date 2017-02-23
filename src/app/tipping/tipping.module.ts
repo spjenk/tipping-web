@@ -5,10 +5,12 @@ import {TippingComponent} from "./tipping.component"
 import {TippingRouterModule} from "./tipping.routes"
 import {TippingGridComponent} from "./components/grid/tipping-grid.component"
 import {SelectorComponent} from "./components/selector/selector.component"
+import {MainEventService} from "./mainevent.service"
 
 @NgModule({
   imports: [ CommonModule, TippingRouterModule, HttpModule],
   exports: [TippingComponent],
-  declarations: [TippingComponent, TippingGridComponent, SelectorComponent]
+  declarations: [TippingComponent, TippingGridComponent, SelectorComponent],
+  providers: [MainEventService]
 })
 export class TippingModule { }
