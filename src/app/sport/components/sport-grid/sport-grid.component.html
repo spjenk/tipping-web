@@ -1,0 +1,18 @@
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Leagues</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of sport">
+        <td>
+            <div class="ui ribbon label">{{ item.SportId }}</div>
+        </td>
+        <td>{{ item.SportName }}</td>
+        <td>{{ item.Leagues.length }}</td>
+    </tr>
+    </tbody>
+</table>
