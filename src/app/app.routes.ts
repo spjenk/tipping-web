@@ -4,7 +4,7 @@ import { ModuleWithProviders } from '@angular/core';
 const appRoutes: Routes = [
   { path: '', loadChildren: 'app/sport/sport.module#SportModule' },
   { path: 'sport', loadChildren: 'app/sport/sport.module#SportModule' },
-  { path: 'tipping', loadChildren: 'app/sport/tipping.module#TippingModule' }
+  { path: 'tipping', loadChildren: 'app/tipping/tipping.module#TippingModule' }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
