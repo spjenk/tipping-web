@@ -11,7 +11,10 @@
                         {{ item.Offers[0].OfferName }}
                     </div>
                     <div class="meta">
-                        {{ item.Offers[0].WinReturn }}
+                        <a target="_blank"
+                           href="https://ubet.com/sports/bet-offer?Offers[0].SubEventId={{item.SubEventId}}&Offers[0].OfferId={{item.Offers[0].OfferId}}">
+                            {{ item.Offers[0].WinReturn }}
+                        </a>
                     </div>
                 </div>
                 <div class="extra content">
@@ -27,7 +30,10 @@
                         {{ item.Offers[1].OfferName }}
                     </div>
                     <div class="meta">
-                        {{ item.Offers[1].WinReturn }}
+                        <a target="_blank"
+                           href="https://ubet.com/sports/bet-offer?Offers[0].SubEventId={{item.SubEventId}}&Offers[0].OfferId={{item.Offers[1].OfferId}}">
+                            {{ item.Offers[1].WinReturn }}
+                        </a>
                     </div>
                 </div>
                 <div class="extra content">
@@ -46,4 +52,6 @@
         Based on your tips, you could win {{ getMultiWinReturn(10) }} with a $10 investment
     </div>
 </div>
+<br>
+Gamble Responsibly, Gamblers Help 1800 858 858
 <br><br>
