@@ -118,5 +118,13 @@ export class Offers {
     LongDisplayName: string
 }
 
+export class SelectedOffer {
+    constructor(public SubEventId: number,
+                public OfferId: number,
+                public WinReturn: number) {
+
+    }
+}
+
 
 

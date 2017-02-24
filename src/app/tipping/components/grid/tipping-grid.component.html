@@ -1,43 +1,38 @@
 <br><br>
 <div class="ui grid" *ngFor="let item of subEvents">
     <br>
+    <br>
     <div class="ui center aligned container">
         <div class="ui cards">
             <div class="card">
                 <div class="content">
-                    <!-- <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg"> -->
+                    <i *ngIf="isSelected(item.SubEventId, item.Offers[0].OfferId)" class="right floated large green checkmark icon"></i>
                     <div class="header">
                         {{ item.Offers[0].OfferName }}
                     </div>
                     <div class="meta">
                         {{ item.Offers[0].WinReturn }}
                     </div>
-                    <div class="description">
-                        description
-                    </div>
                 </div>
                 <div class="extra content">
                     <div class="ui two buttons">
-                        <div class="ui basic green button">Tip</div>
+                        <div class="ui basic green button" (click)="offerSelected(item.SubEventId, item.Offers[0].OfferId, item.Offers[0].WinReturn)">Tip</div>
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
-                    <!-- <img class="right floated mini ui image" src="/images/avatar/large/jenny.jpg"> -->
+                    <i *ngIf="isSelected(item.SubEventId, item.Offers[1].OfferId)" class="right floated large green checkmark icon"></i>
                     <div class="header">
                         {{ item.Offers[1].OfferName }}
                     </div>
                     <div class="meta">
                         {{ item.Offers[1].WinReturn }}
                     </div>
-                    <div class="description">
-                        description
-                    </div>
                 </div>
                 <div class="extra content">
                     <div class="ui two buttons">
-                        <div class="ui basic green button">Tip</div>
+                        <div class="ui basic green button" (click)="offerSelected(item.SubEventId, item.Offers[1].OfferId, item.Offers[1].WinReturn)">Tip</div>
                     </div>
                 </div>
             </div>
@@ -45,3 +40,10 @@
         <br>
     </div>
 </div>
+<br>
+<div class="ui left aligned container">
+    <div class="ignored ui warning message">
+        Based on your tips, you could win {{ getMultiWinReturn(10) }} with a $10 investment
+    </div>
+</div>
+<br><br>
