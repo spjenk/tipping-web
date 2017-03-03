@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SubEvent} from "../shared/models/sports.data.models"
+import {MainEventService} from "./services/mainevent.service"
 
 @Component({
   selector: 'app-tipping',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TippingComponent implements OnInit {
 
-  constructor() { }
+  subEvents: SubEvent[] = [];
+
+  constructor(private mainEventService: MainEventService) {
+
+  }
 
   ngOnInit() {
+    this.handleLeageSelection(48);
+  }
+
+  handleLeageSelection(leage: number) {
+    this.subEvents = this.mainEventService.getHeadToHeadSubEventsForLeage(leage);
   }
 
 }

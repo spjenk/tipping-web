@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'app-selector',
-  templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.css']
+    selector: 'app-selector',
+    templateUrl: './selector.component.html',
+    styleUrls: ['./selector.component.css']
 })
 export class SelectorComponent implements OnInit {
 
-  constructor() { }
+    @Output()
+    update: EventEmitter<any> = new EventEmitter();
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
+
+    leagueSelected(leage: number) {
+        this.update.emit(leage);
+    }
 
 }

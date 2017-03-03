@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {MainEventService} from "../../mainevent.service"
+import {Component, Input} from '@angular/core';
+import {MainEventService} from "../../services/mainevent.service"
 import {League, SubEvent, SelectedOffer} from "../../../shared/models/sports.data.models"
 
 @Component({
@@ -7,33 +7,16 @@ import {League, SubEvent, SelectedOffer} from "../../../shared/models/sports.dat
     templateUrl: './tipping-grid.component.html',
     styleUrls: ['./tipping-grid.component.css']
 })
-export class TippingGridComponent implements OnInit {
+export class TippingGridComponent {
 
-    leages: League[]
+    @Input()
     subEvents: SubEvent[]
+
     selected: SelectedOffer[]
 
     constructor(private mainEventService: MainEventService) {
         this.subEvents = []
         this.selected = []
-    }
-
-    ngOnInit() {
-        this.mainEventService.getLeage(48).subscribe((data: any) => {
-            this.leages = data.Sport.Leagues
-            for (let meeting of this.leages[0].Meetings) {
-                for (let mainEvent of meeting.MainEvents) {
-                    this.mainEventService.getMainEvents(mainEvent.MainEventId).subscribe((data: any) => {
-                        let subEvents: SubEvent[] = data.MainEvent.SubEvents
-                        for (let subEvent of  subEvents) {
-                            if (subEvent.BetTypeId == 72 && subEvent.Status == "o") {
-                                this.subEvents.push(subEvent);
-                            }
-                        }
-                    })
-                }
-            }
-        })
     }
 
     offerSelected(subEventId: number, offerId: number, winReturn: number): void {
