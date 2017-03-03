@@ -8,7 +8,7 @@ import {Sports, Sport} from "../shared/models/sports.data.models"
 @Injectable()
 export class MainEventService {
 
-    private leagueUrl: string = 'http://api.ubet.com/sales/vmax/web/data/sports/league/';
+    private leagueUrl: string = 'https://api.ubet.com/sales/vmax/web/data/sports/league/';
     private mainEventUrl: string = 'https://api.ubet.com/sales/vmax/web/data/sports/mainevent/';
 
 
