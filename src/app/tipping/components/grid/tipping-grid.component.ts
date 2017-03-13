@@ -42,7 +42,7 @@ export class TippingGridComponent {
         return false
     }
 
-    getMultiWinReturn(multiplier: number): number {
+    getMultiWinReturn(multiplier: number, league): number {
         let showMeTheMoney: number = 0;
         for (var i = 0; i < this.selected.length; i++) {
             showMeTheMoney += this.selected[i].WinReturn

@@ -3,5 +3,5 @@ import { RouterModule } from '@angular/router';
 import { SportComponent } from './sport.component';
 
 export const SportRouterModule: ModuleWithProviders = RouterModule.forChild([
-  { path: '', component: SportComponent }
+  { path: 'sport', component: SportComponent }
 ]);

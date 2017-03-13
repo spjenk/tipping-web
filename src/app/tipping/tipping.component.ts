@@ -10,17 +10,19 @@ import {MainEventService} from "./services/mainevent.service"
 export class TippingComponent implements OnInit {
 
   subEvents: SubEvent[] = [];
+  selectedLeage: number = 48;
 
   constructor(private mainEventService: MainEventService) {
 
   }
 
   ngOnInit() {
-    this.handleLeageSelection(48);
+    this.handleLeageSelection(this.selectedLeage);
   }
 
   handleLeageSelection(leage: number) {
-    this.subEvents = this.mainEventService.getHeadToHeadSubEventsForLeage(leage);
+    this.selectedLeage = leage;
+    this.subEvents = this.mainEventService.getHeadToHeadSubEventsForLeage(this.selectedLeage);
   }
 
 }
