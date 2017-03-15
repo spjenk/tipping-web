@@ -1,13 +1,32 @@
 # TippingWeb
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+Demo: https://d10ay4mbbx5ito.cloudfront.net/
 
-## Prerequisites
+##Purpose
+
+**Demo application used for training and UBET API integration examples**
+
+API GET examples include: 
+
++ leagues (e.g https://api.ubet.com/sales/vmax/web/data/sports/league/48 )
++ mainEvents (e.g https://api.ubet.com/sales/vmax/web/data/sports/mainevent/622477 )
+
+**Code:** https://github.com/spjenk/tipping-web/blob/master/src/app/tipping/services/mainevent.service.ts  
+
+Examples of linking back to UBET with prepopulated data are in: 
+ 
+**Code:** https://github.com/spjenk/tipping-web/blob/master/src/app/tipping/components/grid/tipping-grid.component.html
+
+
+_This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3._
+
+## Running locally
+### Prerequisites
 
 Both the CLI and generated project have dependencies that require Node 6.9.0 or higher, together
 with NPM 3 or higher.
 
-## Installation
+### Installation
 **BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
 ```bash
 npm install -g @angular/cli
@@ -18,30 +37,5 @@ You can install the packages with npm
 npm install
 ```
 
-## Development server
+### Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
