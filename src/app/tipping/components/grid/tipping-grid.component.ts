@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {MainEventService} from "../../services/mainevent.service"
 import {League, SubEvent, SelectedOffer} from "../../../shared/models/sports.data.models"
 
@@ -12,11 +12,14 @@ export class TippingGridComponent {
     @Input()
     subEvents: SubEvent[]
 
+    @Input()
     selected: SelectedOffer[]
+
+    @Output()
+    selection: EventEmitter<any> = new EventEmitter();
 
     constructor(private mainEventService: MainEventService) {
         this.subEvents = []
-        this.selected = []
     }
 
     offerSelected(subEventId: number, offerId: number, winReturn: number): void {
@@ -29,7 +32,7 @@ export class TippingGridComponent {
             }
         }
         if (!found) {
-            this.selected.push(new SelectedOffer(subEventId, offerId, winReturn))
+            this.selection.emit(new SelectedOffer(subEventId, offerId, winReturn));
         }
     }
 
@@ -40,13 +43,5 @@ export class TippingGridComponent {
             }
         }
         return false
-    }
-
-    getMultiWinReturn(multiplier: number, league): number {
-        let showMeTheMoney: number = 0;
-        for (var i = 0; i < this.selected.length; i++) {
-            showMeTheMoney += this.selected[i].WinReturn
-        }
-        return multiplier * showMeTheMoney
     }
 }

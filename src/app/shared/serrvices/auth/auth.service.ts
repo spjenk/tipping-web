@@ -8,7 +8,7 @@ import {Subject} from "rxjs"
 declare var Auth0Lock: any;
 
 @Injectable()
-export class Auth {
+export class AuthService {
 
   // Configure Auth0
   lock = new Auth0Lock(myConfig.clientID, myConfig.domain, {});

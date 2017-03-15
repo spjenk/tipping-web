@@ -1,0 +1,5 @@
+<div class="ui right aligned container">
+    <button class="ui grey button" (click)="clearSelections()">Clear</button>
+    <button class="ui green button" (click)="saveSelections()" *ngIf="auth.authenticated()">Save</button>
+    <div class="ui button" *ngIf="!auth.authenticated()">Logging to Save</div>
+</div>

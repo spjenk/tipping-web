@@ -9,7 +9,7 @@ import {SportModule} from './sport/sport.module';
 import {routing} from './app.routes';
 import {RouterModule} from '@angular/router';
 import {TippingModule} from './tipping/tipping.module';
-import {Auth} from "./shared/auth/auth.service"
+import {AuthService} from "./shared/serrvices/auth/auth.service"
 import {UserComponent} from "./shared/components/user/user.component"
 
 @NgModule({
@@ -25,7 +25,7 @@ import {UserComponent} from "./shared/components/user/user.component"
     RouterModule,
     TippingModule
   ],
-  providers: [Auth],
+  providers: [AuthService],
   bootstrap: [AppComponent, UserComponent]
 })
 export class AppModule { }

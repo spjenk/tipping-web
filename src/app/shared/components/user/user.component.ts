@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Auth} from "../../auth/auth.service"
+import {AuthService} from "../../serrvices/auth/auth.service"
 
 @Component({
     selector: 'app-user',
@@ -11,7 +11,7 @@ export class UserComponent {
 
     fullName: string = "";
 
-    constructor(auth: Auth) {
+    constructor(auth: AuthService) {
         auth.profileChange$.subscribe(
             authenticated => {
                 if (this.fullName.length == 0 && authenticated) {
