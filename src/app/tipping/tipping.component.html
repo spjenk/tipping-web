@@ -1,5 +1,5 @@
 <app-selector (update)="handleLeageSelection($event)"></app-selector>
-<app-tipping-grid [subEvents]="subEvents" [selected]="selected" (selection)="selection($event)"></app-tipping-grid>
+<app-tipping-grid [rounds]="rounds" [selected]="selected" (selection)="selection($event)"></app-tipping-grid>
 <tipping-save (clear)="clearSelection($event)" (save)="saveSelection($event)"></tipping-save>
 <br>
 <div class="ui left aligned container">

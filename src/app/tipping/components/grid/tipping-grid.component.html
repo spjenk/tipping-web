@@ -1,49 +1,63 @@
-<br><br>
-<div class="ui grid" *ngFor="let item of subEvents">
+<div class="ui container" *ngFor="let round of rounds">
     <br>
+    <h3 class="ui dividing header">
+        {{ round.meetingName }}
+    </h3>
     <br>
-    <div class="ui center aligned container">
-        <div class="ui cards">
-            <div class="card">
-                <div class="content">
-                    <i *ngIf="isSelected(item.SubEventId, item.Offers[0].OfferId)" class="right floated large green checkmark icon"></i>
-                    <div class="header">
-                        {{ item.Offers[0].OfferName }}
-                    </div>
-                    <div class="meta">
-                        <a target="_blank"
-                           href="https://ubet.com/sports/bet-offer?Offers[0].SubEventId={{item.SubEventId}}&Offers[0].OfferId={{item.Offers[0].OfferId}}">
-                            {{ item.Offers[0].WinReturn }}
-                        </a>
-                    </div>
-                </div>
-                <div class="extra content">
-                    <div class="ui two buttons">
-                        <div class="ui basic green button" (click)="offerSelected(item.SubEventId, item.Offers[0].OfferId, item.Offers[0].WinReturn)">Tip</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="content">
-                    <i *ngIf="isSelected(item.SubEventId, item.Offers[1].OfferId)" class="right floated large green checkmark icon"></i>
-                    <div class="header">
-                        {{ item.Offers[1].OfferName }}
-                    </div>
-                    <div class="meta">
-                        <a target="_blank"
-                           href="https://ubet.com/sports/bet-offer?Offers[0].SubEventId={{item.SubEventId}}&Offers[0].OfferId={{item.Offers[1].OfferId}}">
-                            {{ item.Offers[1].WinReturn }}
-                        </a>
-                    </div>
-                </div>
-                <div class="extra content">
-                    <div class="ui two buttons">
-                        <div class="ui basic green button" (click)="offerSelected(item.SubEventId, item.Offers[1].OfferId, item.Offers[1].WinReturn)">Tip</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="ui grid" *ngFor="let item of round.subEvents">
         <br>
+        <br>
+        <div class="ui center aligned container">
+            <div class="ui cards">
+                <div class="card">
+                    <div class="content">
+                        <i *ngIf="isSelected(item.SubEventId, item.Offers[0].OfferId)"
+                           class="right floated large green checkmark icon"></i>
+                        <div class="header">
+                            {{ item.Offers[0].OfferName }}
+                        </div>
+                        <div class="meta">
+                            <a target="_blank"
+                               href="https://ubet.com/sports/bet-offer?Offers[0].SubEventId={{item.SubEventId}}&Offers[0].OfferId={{item.Offers[0].OfferId}}">
+                                {{ item.Offers[0].WinReturn }}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui two buttons">
+                            <div class="ui basic green button"
+                                 (click)="offerSelected(round.meetingId, item.SubEventId, item.Offers[0].OfferId, item.Offers[0].WinReturn)">
+                                Tip
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <i *ngIf="isSelected(item.SubEventId, item.Offers[1].OfferId)"
+                           class="right floated large green checkmark icon"></i>
+                        <div class="header">
+                            {{ item.Offers[1].OfferName }}
+                        </div>
+                        <div class="meta">
+                            <a target="_blank"
+                               href="https://ubet.com/sports/bet-offer?Offers[0].SubEventId={{item.SubEventId}}&Offers[0].OfferId={{item.Offers[1].OfferId}}">
+                                {{ item.Offers[1].WinReturn }}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui two buttons">
+                            <div class="ui basic green button"
+                                 (click)="offerSelected(round.meetingId, item.SubEventId, item.Offers[1].OfferId, item.Offers[1].WinReturn)">
+                                Tip
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
     </div>
 </div>
 <br>

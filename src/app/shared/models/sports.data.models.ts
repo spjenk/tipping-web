@@ -119,9 +119,18 @@ export class Offers {
 }
 
 export class SelectedOffer {
-    constructor(public SubEventId: number,
+    constructor(public meetingId: number,
+                public SubEventId: number,
                 public OfferId: number,
                 public WinReturn: number) {
+
+    }
+}
+
+export class Round {
+    constructor(public meetingId: number,
+                public meetingName: string,
+                public subEvents: SubEvent[]) {
 
     }
 }
