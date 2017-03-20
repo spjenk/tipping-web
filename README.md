@@ -31,11 +31,20 @@ with NPM 3 or higher.
 ```bash
 npm install -g @angular/cli
 ```
+```bash
+npm install angular2-jwt
+```
 
 You can install the packages with npm
 ```bash
 npm install
 ```
+
+or with yarn
+```bash
+yarn install
+```
+
 
 ### Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
