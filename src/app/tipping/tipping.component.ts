@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {SubEvent, SelectedOffer, Round} from "../shared/models/sports.data.models"
+import {SelectedOffer, Round} from "../shared/models/sports.data.models"
 import {MainEventService} from "./services/mainevent.service"
-import {TipService} from "./services/tip.service"
 
 @Component({
   selector: 'app-tipping',
