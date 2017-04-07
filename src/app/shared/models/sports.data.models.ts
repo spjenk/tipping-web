@@ -136,15 +136,15 @@ export class Round {
 }
 
 export class TipSelection {
-  constructor(public meetingId: string,
+  constructor(public meetingId: any,
               public user: string,
-              public selection: Selection) {
+              public selections: OfferSelection[]) {
 
   }
 }
 
-export class selection {
-  constructor(public subEventId: string, public offerId: string) {
+export class OfferSelection {
+  constructor(public subEventId: any, public offerId: any) {
 
   }
 }

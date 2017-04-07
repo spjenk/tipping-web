@@ -1,4 +1,4 @@
-import {Http, Response} from '@angular/http';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import {Injectable} from "@angular/core"
 
 import {Observable} from 'rxjs/Rx';
@@ -9,6 +9,7 @@ import {TipSelection} from "../../shared/models/sports.data.models"
 export class TipSelectionService {
 
   private selectionUrl: string = 'http://tippingselection-env.ap-southeast-2.elasticbeanstalk.com/selection/';
+  //private selectionUrl: string = 'http://localhost:8080/selection/';
 
   constructor(private http: Http) {
   }
@@ -20,5 +21,20 @@ export class TipSelectionService {
         return response.json();
       })
   }
+
+  addTipSelection (body: Object): Observable<TipSelection> {
+    let bodyString = JSON.stringify(body);
+    console.log(bodyString);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http
+      .post(this.selectionUrl, bodyString, options)
+      .map((response: Response) => {
+        console.log(response)
+        return response.json();
+      })
+  }
+
 }
 

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SelectedOffer, Round} from "../shared/models/sports.data.models"
+import {SelectedOffer, Round, TipSelection, OfferSelection} from "../shared/models/sports.data.models"
 import {MainEventService} from "./services/mainevent.service"
 import {AuthService} from "../shared/serrvices/auth/auth.service";
 import {TipSelectionService} from "./services/tip.selection.service";
@@ -40,7 +40,29 @@ export class TippingComponent implements OnInit {
   }
 
   saveSelection(event: any) {
-    console.log("To be Implemented")
+
+    //create empty array of selectedTips
+    let selections: TipSelection[] = [];
+
+    //loop selected offers
+    for (let s of this.selected) {
+      let i = selections.findIndex(item => item.meetingId === s.meetingId)
+      if (i >= 0) {
+        selections[i].selections.push(new OfferSelection(s.SubEventId, s.OfferId));
+      } else {
+        selections.push(new TipSelection(s.meetingId, this.auth.getFormattedUserName(), [new OfferSelection(s.SubEventId, s.OfferId)]))
+      }
+    }
+
+    console.log("Tips to save: " + selections.length);
+
+    //loop selected tips and post
+    for (let tipToSave of selections) {
+      this.tipSelectionService.addTipSelection(tipToSave).subscribe((data: any) => {
+        console.log(data);
+      })
+    }
+
   }
 
   selection(selectedOffer: SelectedOffer) {
