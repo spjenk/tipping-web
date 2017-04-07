@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SelectedOffer, Round} from "../shared/models/sports.data.models"
 import {MainEventService} from "./services/mainevent.service"
+import {AuthService} from "../shared/serrvices/auth/auth.service";
+import {TipSelectionService} from "./services/tip.selection.service";
+import {isNullOrUndefined} from "util";
 
 @Component({
   selector: 'app-tipping',
@@ -17,8 +20,9 @@ export class TippingComponent implements OnInit {
   selectedLeage: number = 48;
   selected: SelectedOffer[] = [];
 
-  constructor(private mainEventService: MainEventService) {
-
+  constructor(private mainEventService: MainEventService,
+              private auth: AuthService,
+              private tipSelectionService: TipSelectionService) {
   }
 
   ngOnInit() {
@@ -69,6 +73,7 @@ export class TippingComponent implements OnInit {
                       this.rounds[i].subEvents.push(se);
                     } else {
                       this.rounds.push(new Round(meeting.MeetingId, meeting.MeetingName, [se]))
+                      this.getSelectedTips(meeting.MeetingId);
                     }
                   }
                 }
@@ -80,4 +85,18 @@ export class TippingComponent implements OnInit {
     })
   }
 
+  getSelectedTips(meetingId: any) {
+    if (this.auth.authenticated()) {
+      let user: string = this.auth.getFormattedUserName();
+
+      this.tipSelectionService.getTipSelection(user, meetingId).subscribe((data: any) => {
+        if (!isNullOrUndefined(data)) {
+          for (let selection of data.selections) {
+            let selectedOffer = new SelectedOffer(meetingId, selection.subEventId, selection.offerId, 0.00);
+            this.selected.push(selectedOffer);
+          }
+        }
+      })
+    }
+  }
 }

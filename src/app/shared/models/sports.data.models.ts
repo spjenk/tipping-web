@@ -60,7 +60,7 @@ export class MainEvent {
     CashOutEnabled: boolean
 }
 
-export class SubEvent { 
+export class SubEvent {
     SubEventId: number
     Status: string
     SortOrder: number
@@ -135,5 +135,16 @@ export class Round {
     }
 }
 
+export class TipSelection {
+  constructor(public meetingId: string,
+              public user: string,
+              public selection: Selection) {
 
+  }
+}
 
+export class selection {
+  constructor(public subEventId: string, public offerId: string) {
+
+  }
+}

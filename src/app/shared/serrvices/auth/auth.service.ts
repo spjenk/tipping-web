@@ -50,4 +50,11 @@ export class AuthService {
     // Remove token from localStorage
     return JSON.parse(localStorage.getItem('profile'));
   };
+
+  public getFormattedUserName(): string {
+    let user: string = this.getProfile().name;
+    user = user.toLocaleLowerCase()
+    user = user.replace(" ", "-")
+    return user;
+  }
 }
