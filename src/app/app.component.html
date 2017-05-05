@@ -4,9 +4,6 @@
         <a routerLink="sport" class="item">Sports</a>
         <div class="right menu">
             <div class="item">
-                <app-user (profileUpdated)="handleUserUpdated($event)"></app-user>
-            </div>
-            <div class="item">
                 <a class="ui blue button" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</a>
                 <a class="ui blue button" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</a>
             </div>
@@ -14,12 +11,7 @@
     </div>
 </div>
 <div class="container">
-    <br><br>
+    <br><br><br>
     <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>
-            {{title}}
-        </h1>
-        <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
 </div>

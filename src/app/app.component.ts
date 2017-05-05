@@ -9,7 +9,7 @@ import {AuthService} from "./shared/serrvices/auth/auth.service"
 
 export class AppComponent {
 
-  constructor(private auth: AuthService) {
+  constructor(public auth: AuthService) {
 
   }
 

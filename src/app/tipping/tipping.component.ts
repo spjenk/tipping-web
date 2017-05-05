@@ -68,7 +68,7 @@ export class TippingComponent implements OnInit {
     this.selected.push(selectedOffer);
   }
 
-  getMultiWinReturn(multiplier: number, league): number {
+  getMultiWinReturn(multiplier: number): number {
     let showMeTheMoney: number = 0;
     for (var i = 0; i < this.selected.length; i++) {
       showMeTheMoney += this.selected[i].WinReturn;

@@ -14,7 +14,7 @@ export class SaveComponent {
     @Output()
     save: EventEmitter<any> = new EventEmitter();
 
-    constructor(private auth: AuthService) {
+    constructor(public auth: AuthService) {
     }
 
     clearSelections() {
