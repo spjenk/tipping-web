@@ -62,7 +62,6 @@ export class TippingComponent implements OnInit {
         console.log(data);
       })
     }
-
   }
 
   selection(selectedOffer: SelectedOffer) {
@@ -72,9 +71,17 @@ export class TippingComponent implements OnInit {
   getMultiWinReturn(multiplier: number, league): number {
     let showMeTheMoney: number = 0;
     for (var i = 0; i < this.selected.length; i++) {
-      showMeTheMoney += this.selected[i].WinReturn
+      showMeTheMoney += this.selected[i].WinReturn;
     }
     return multiplier * showMeTheMoney
+  }
+
+  getPreopulateBetSlipParams(): string {
+    let url = "https://ubet.com/sports/bet-offer?"
+    for (var i = 0; i < this.selected.length; i++) {
+      url += "Offers["+i+"].SubEventId="+this.selected[i].SubEventId+"&Offers["+i+"].OfferId="+this.selected[i].OfferId+"&";
+    }
+    return url;
   }
 
   getHeadToHeadSubEventsForLeage(league: number): void {
