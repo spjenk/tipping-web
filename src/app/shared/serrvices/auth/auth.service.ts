@@ -52,9 +52,12 @@ export class AuthService {
   };
 
   public getFormattedUserName(): string {
-    let user: string = this.getProfile().name;
-    user = user.toLocaleLowerCase()
-    user = user.replace(" ", "-")
+    let user: string = "";
+    let profile: any = this.getProfile();
+    if (profile !== null) {
+      user = profile.name.toLocaleLowerCase();
+      user = user.replace(" ", "-")
+    }
     return user;
   }
 }
