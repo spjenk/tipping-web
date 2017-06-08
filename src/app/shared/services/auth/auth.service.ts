@@ -1,7 +1,6 @@
 import {Injectable, Output, EventEmitter}      from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { myConfig }        from './auth.config';
-import {isUndefined} from "util"
 import {Subject} from "rxjs"
 
 // Avoid name not found warnings
@@ -11,7 +10,7 @@ declare var Auth0Lock: any;
 export class AuthService {
 
   // Configure Auth0
-  lock = new Auth0Lock(myConfig.clientID, myConfig.domain, {});
+  private lock = new Auth0Lock(myConfig.clientID, myConfig.domain, {});
 
   private profileSource = new Subject<boolean>();
   profileChange$ = this.profileSource.asObservable();

@@ -1,5 +1,5 @@
 import {Component, Output, EventEmitter} from '@angular/core';
-import {AuthService} from "../../../shared/serrvices/auth/auth.service"
+import {AuthService} from "../../../shared/services/auth/auth.service"
 
 @Component({
     selector: 'tipping-save',

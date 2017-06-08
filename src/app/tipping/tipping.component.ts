@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SelectedOffer, Round, TipSelection, OfferSelection} from "../shared/models/sports.data.models"
 import {MainEventService} from "./services/mainevent.service"
-import {AuthService} from "../shared/serrvices/auth/auth.service";
+import {AuthService} from "../shared/services/auth/auth.service";
 import {TipSelectionService} from "./services/tip.selection.service";
 import {isNullOrUndefined} from "util";
 
