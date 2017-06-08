@@ -1,0 +1,6 @@
+{
+  "short_name": "Tipping demo",
+  "name": "Example tipping app that uses the ubet api",
+  "start_url": "index.html",
+  "theme-color": "#9bf442"
+}
