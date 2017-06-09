@@ -1,6 +1,6 @@
 # TippingWeb
 
-Demo: https://d10ay4mbbx5ito.cloudfront.net/
+Demo: https://tipping-c3da1.firebaseapp.com/#/
 
 ## Purpose
 
