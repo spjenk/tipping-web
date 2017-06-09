@@ -3,6 +3,9 @@
 # compiled output
 /dist
 /tmp
+/public
+
+service-worker.js
 
 # dependencies
 /node_modules
