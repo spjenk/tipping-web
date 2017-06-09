@@ -50,7 +50,7 @@ export class TippingComponent implements OnInit {
       if (i >= 0) {
         selections[i].selections.push(new OfferSelection(s.SubEventId, s.OfferId));
       } else {
-        selections.push(new TipSelection(s.meetingId, this.auth.getFormattedUserName(), [new OfferSelection(s.SubEventId, s.OfferId)]))
+        selections.push(new TipSelection(s.meetingId, "", [new OfferSelection(s.SubEventId, s.OfferId)]))
       }
     }
 
@@ -116,7 +116,7 @@ export class TippingComponent implements OnInit {
 
   getSelectedTips(meetingId: any) {
     if (this.auth.authenticated()) {
-      let user: string = this.auth.getFormattedUserName();
+      let user: string = "";
 
       this.tipSelectionService.getTipSelection(user, meetingId).subscribe((data: any) => {
         if (!isNullOrUndefined(data)) {

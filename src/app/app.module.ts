@@ -12,6 +12,12 @@ import {TippingModule} from './tipping/tipping.module';
 import {AuthService} from "./shared/services/auth/auth.service"
 import {UserComponent} from "./shared/components/user/user.component"
 
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+import * as firebase from 'firebase/app';
+import {AngularFireModule} from "angularfire2";
+
 const routes: Routes = [
 ]
 
@@ -27,6 +33,8 @@ const routes: Routes = [
     routing,
     RouterModule,
     TippingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [AuthService],
