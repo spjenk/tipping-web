@@ -115,6 +115,7 @@ export class TippingComponent implements OnInit {
   }
 
   getSelectedTips(meetingId: any) {
+    /*
     if (this.auth.authenticated()) {
       let user: string = "";
 
@@ -127,5 +128,6 @@ export class TippingComponent implements OnInit {
         }
       })
     }
+    */
   }
 }

@@ -9,9 +9,17 @@ import {AuthService} from "../../services/auth/auth.service"
 
 export class UserComponent {
 
-    constructor(auth: AuthService) {
-        auth.user;
+    constructor(public auth: AuthService) {
+
     }
+
+    getUser(): String {
+      return this.auth.user_displayName
+    }
+
+  getEmail(): String {
+    return this.auth.user_email
+  }
 
 
 

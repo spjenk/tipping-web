@@ -12,14 +12,21 @@ import {TippingModule} from './tipping/tipping.module';
 import {AuthService} from "./shared/services/auth/auth.service"
 import {UserComponent} from "./shared/components/user/user.component"
 
-import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import { environment } from '../environments/environment';
-import * as firebase from 'firebase/app';
-import {AngularFireModule} from "angularfire2";
+import { AngularFireModule} from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 
 const routes: Routes = [
 ]
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBoyvn_yHjf9gqng_eXUaKog1THcUFtFP8",
+  authDomain: "tipping-c3da1.firebaseapp.com",
+  databaseURL: "https://tipping-c3da1.firebaseio.com",
+  projectId: "tipping-c3da1",
+  storageBucket: "tipping-c3da1.appspot.com",
+  messagingSenderId: "497207896310"
+};
 
 @NgModule({
   declarations: [
@@ -33,11 +40,10 @@ const routes: Routes = [
     routing,
     RouterModule,
     TippingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes, { useHash: true })
   ],
-  providers: [AuthService],
+  providers: [AuthService, AngularFireAuth],
   bootstrap: [AppComponent, UserComponent]
 })
 export class AppModule { }

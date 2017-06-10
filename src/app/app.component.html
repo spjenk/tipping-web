@@ -7,8 +7,8 @@
             <app-user></app-user>
           </div>
           <div class="item">
-            <a class="ui blue button" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</a>
-            <a class="ui blue button" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</a>
+            <button class="ui blue button" (click)="loginGoogle()" *ngIf="!authenticated()">Login With Google</button>
+            <a class="ui blue button" (click)="auth.logout()" *ngIf="authenticated()">Log Out</a>
           </div>
         </div>
     </div>
